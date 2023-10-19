@@ -41,7 +41,7 @@ export const validateSchema = (schema: Joi.Schema) => {
 	return (req: Request, res: Response, next: NextFunction) => {
 		const validate = schema.validate(req.body);
 		if (validate.error)
-			return res.status(400).json({ message: validate.error });
+			return res.status(400).json({ message: validate.error.details.map((e) => e.message) });
 		next();
 	};
 };
