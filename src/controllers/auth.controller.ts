@@ -10,10 +10,6 @@ export const signUp = async (req: Request, res: Response) => {
      try {
         const { username, email, password, roles } = req.body as IUser;
 
-        const userFound = await User.findOne({ email: email })
-       
-        if(userFound) return res.status(STATUS_CODES.BAD_REQUEST).json({ message: 'The email already exists' });
-
         const newUser = new User({
             username,
             email,
