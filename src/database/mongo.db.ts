@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
+import config from '../config';
 
-mongoose.connect('mongodb://127.0.0.1:27017/')
+mongoose.connect(config.DB_CONNECTION)
 	.then((db) => console.log('DB is connected'))
 	.catch((err) => console.log(err));

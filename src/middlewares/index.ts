@@ -1,2 +1,2 @@
 export {verifyToken, IsAdmin, IsModerator} from './authorization';
-export {checkRolesExisted, checkDuplicateUsernameOrEmail} from './validation';
+export {checkRolesExisted, checkDuplicateUsernameOrEmail, validateSchema} from './validation';
