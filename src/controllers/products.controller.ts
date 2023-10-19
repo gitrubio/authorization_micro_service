@@ -52,4 +52,14 @@ export const updateProductById = async (req: Request, res: Response) => {
     }
 };
 
-export const deleteProductById = async (req: Request, res: Response) => {};
+export const deleteProductById = async (req: Request, res: Response) => {
+    try {
+        const { productId } = req.params;
+        await Product.findByIdAndDelete(productId);
+        res.status(STATUS_CODES.OK).json({message: 'Product deleted'});
+    } catch (error) {
+        res
+        .status(STATUS_CODES.INTERNAL_SERVER_ERROR)
+        .send('Error deleting product');
+    }
+};
