@@ -22,8 +22,8 @@ export const verifyToken = async (
 		const user = await User.findById(req.body.userId);
 		if (!user)
 			return res
-				.status(STATUS_CODES.NOT_FOUND)
-				.json({ message: 'No user found' });
+				.status(STATUS_CODES.FORBIDDEN)
+				.json({ message: 'Unauthorized' });
 
 		next();
 	} catch (error) {
