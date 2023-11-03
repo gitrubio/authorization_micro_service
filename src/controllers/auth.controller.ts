@@ -51,7 +51,7 @@ export const signIn = async (req: Request, res: Response) => {
         const token = jwt.sign({ id: userFound._id}, config.SECRET, {
             expiresIn: 86400 // 24 hours
         })
-        res.status(STATUS_CODES.OK).json({ token });
+        res.status(STATUS_CODES.OK).json({ token, roles: userFound.roles });
 
     } catch (error) {
         res
